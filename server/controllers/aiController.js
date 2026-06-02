@@ -1,6 +1,6 @@
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+const Groq = require('groq-sdk');
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 // POST /api/ai/coach
 // Accepts a generatedPlan array, returns 2–4 concise coaching insights
@@ -36,9 +36,13 @@ Respond with ONLY the JSON array.
 `;
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
-    const result = await model.generateContent(prompt);
-    const text = result.response.text()
+    const chatCompletion = await groq.chat.completions.create({
+      messages: [{ role: 'user', content: prompt }],
+      model: 'llama-3.3-70b-versatile',
+      temperature: 0.5,
+    });
+    
+    const text = (chatCompletion.choices[0]?.message?.content || '')
       .trim()
       .replace(/^```json\s*/i, '')
       .replace(/^```\s*/i, '')
