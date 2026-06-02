@@ -1,0 +1,88 @@
+# ======================
+# Dependencies
+# ======================
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# ======================
+# Environment Variables
+# ======================
+.env
+.env.*
+client/.env
+server/.env
+
+# Keep example env if present
+!.env.example
+
+# ======================
+# Build / Production
+# ======================
+dist/
+build/
+client/dist/
+server/dist/
+
+# ======================
+# Logs
+# ======================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ======================
+# OS Files
+# ======================
+.DS_Store
+Thumbs.db
+
+# ======================
+# IDE / Editor
+# ======================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ======================
+# Runtime / Temp Files
+# ======================
+tmp/
+temp/
+.cache/
+coverage/
+
+# ======================
+# Testing
+# ======================
+coverage/
+.nyc_output/
+
+# ======================
+# Package Locks (Optional)
+# Keep if using npm
+# ======================
+# package-lock.json
+
+# ======================
+# Misc
+# ======================
+*.pid
+*.seed
+*.out
+
+# ======================
+# Claude / AI Files (Optional)
+# ======================
+.claude/
+
+# ======================
+# Generated files
+# ======================
+*.zip
+*.tar
+*.gz
